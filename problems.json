@@ -401,7 +401,7 @@
     "id": 37,
     "text": "David has $4.85 in quarters and dimes. He has 25 coins in total. How many quarters does he have?",
     "var": "Let $q$ = the number of quarters.",
-    "equation": "$ 0.25q + 0.10(25 - q) = 4.85 $",
+    "equation": "$ 0.25q + 0.10(25 - q) = 4.90 $",
     "answer": "16 quarters",
     "correctAnswers": [
       "16"
