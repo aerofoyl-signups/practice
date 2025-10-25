@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Interactive Linear Equation Practice</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    .nav-button { transition: all 0.2s ease-in-out; }
+    .nav-button-active {
+      transform: scale(1.1);
+      box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+    }
+  </style>
+</head>
+<body class="bg-teal-50 text-gray-900 font-sans leading-relaxed">
+  <main class="max-w-4xl mx-auto p-4 md:p-8">
+    <header class="text-center mb-8">
+      <h1 class="text-3xl md:text-4xl font-bold text-teal-800">Linear Equation Word Problems</h1>
+      <p class="text-lg text-gray-700 mt-2">An interactive practice tool to master 50 word problems.</p>
+    </header>
+
+    <section class="mb-8 bg-white p-4 rounded-xl shadow-lg flex justify-around text-center">
+      <div>
+        <span class="block text-2xl font-bold text-green-600" id="correct-count">0</span>
+        <span class="text-sm text-gray-600">Correct</span>
+      </div>
+      <div>
+        <span class="block text-2xl font-bold text-red-600" id="incorrect-count">0</span>
+        <span class="text-sm text-gray-600">Incorrect</span>
+      </div>
+    </section>
+
+    <section id="workspace" class="bg-white p-6 md:p-8 rounded-xl shadow-lg transition-all duration-300">
+      <h2 id="problem-title" class="text-2xl font-semibold text-teal-700 mb-4">Problem #1 of 50</h2>
+      <p id="problem-text" class="text-gray-800 text-lg leading-relaxed min-h-[100px]"></p>
+      <p id="answer-hint" class="text-sm text-gray-600 mt-4 font-medium"></p>
+      <div class="mt-4 flex flex-col sm:flex-row gap-2">
+        <input type="text" id="answer-input" class="flex-grow px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-500" placeholder="Enter your answer here...">
+        <button id="submit-answer-btn" class="px-5 py-2.5 bg-blue-600 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-all">
+          Submit Answer
+        </button>
+      </div>
+      <p id="feedback-text" class="mt-3 text-sm min-h-[1.25rem]"></p>
+      <div class="mt-4">
+        <button id="toggle-solution-btn" class="hidden px-5 py-2.5 bg-teal-600 text-white font-semibold rounded-lg shadow-md hover:bg-teal-700 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:ring-offset-2 transition-all">
+          Show Solution
+        </button>
+      </div>
+      <div id="solution-area" class="hidden mt-6 border-t border-teal-200 pt-6 space-y-3">
+        <p id="solution-var" class="text-gray-700 text-base"></p>
+        <p id="solution-eq" class="text-gray-700 text-base"></p>
+        <p id="solution-ans" class="text-teal-800 text-lg font-semibold"></p>
+      </div>
+    </section>
+
+    <nav class="mt-8 flex justify-between items-center">
+      <button id="prev-btn" class="px-6 py-3 bg-white border border-teal-300 text-teal-700 font-semibold rounded-lg shadow-sm hover:shadow-md disabled:opacity-50 disabled:cursor-not-allowed transition-all">
+        &larr; Previous
+      </button>
+      <button id="next-btn" class="px-6 py-3 bg-teal-600 text-white font-semibold rounded-lg shadow-md hover:bg-teal-700 disabled:opacity-50 disabled:cursor-not-allowed transition-all">
+        Next &rarr;
+      </button>
+    </nav>
+  </main>
+
+  <script>
+    // problems now loaded from problems.json
+    let problems = [];
+    let currentProblemIndex = 0;
+    let wrongAnswerCount = 0;
+    let correctCount = 0;
+    let incorrectCount = 0;
+
+    const problemTitle = document.getElementById('problem-title');
+    const problemText = document.getElementById('problem-text');
+    const answerHint = document.getElementById('answer-hint');
+    const solutionBtn = document.getElementById('toggle-solution-btn');
+    const solutionArea = document.getElementById('solution-area');
+    const solutionVar = document.getElementById('solution-var');
+    const solutionEq = document.getElementById('solution-eq');
+    const solutionAns = document.getElementById('solution-ans');
+
+    const answerInput = document.getElementById('answer-input');
+    const submitBtn = document.getElementById('submit-answer-btn');
+    const feedbackText = document.getElementById('feedback-text');
+
+    let correctCountEl;
+    let incorrectCountEl;
+    let prevBtn;
+    let nextBtn;
+
+    function showProblem(index) {
+      currentProblemIndex = index;
+      const problem = problems[index];
+
+      problemTitle.textContent = `Problem #${problem.id} of ${problems.length}`;
+      problemText.textContent = problem.text;
+      answerHint.textContent = problem.answerHint || '';
+
+      solutionVar.innerHTML = `<strong>Variable:</strong> ${problem.var}`;
+      solutionEq.innerHTML = `<strong>Equation:</strong> ${problem.equation}`;
+      solutionAns.innerHTML = `<strong>Answer:</strong> ${problem.answer}`;
+
+      solutionArea.classList.add('hidden');
+      solutionBtn.classList.add('hidden');
+      solutionBtn.textContent = 'Show Solution';
+
+      answerInput.value = '';
+      answerInput.disabled = false;
+      submitBtn.disabled = false;
+      feedbackText.textContent = '';
+      feedbackText.classList.remove('text-green-600', 'text-red-600');
+      wrongAnswerCount = 0;
+
+      updateNavButtonsState();
+    }
+
+    function toggleSolution() {
+      const isHidden = solutionArea.classList.toggle('hidden');
+      solutionBtn.textContent = isHidden ? 'Show Solution' : 'Hide Solution';
+    }
+
+    function checkAnswer() {
+      const userAnswer = answerInput.value.trim();
+      if (userAnswer === '') {
+        feedbackText.textContent = 'Please enter an answer.';
+        feedbackText.classList.add('text-red-600');
+        feedbackText.classList.remove('text-green-600');
+        return;
+      }
+      const correct = problems[currentProblemIndex].correctAnswers || [];
+      const isCorrect = correct.includes(userAnswer);
+
+      feedbackText.classList.remove('text-green-600', 'text-red-600');
+
+      if (isCorrect) {
+        feedbackText.textContent = 'Correct! Well done.';
+        feedbackText.classList.add('text-green-600');
+        solutionBtn.classList.remove('hidden');
+        answerInput.disabled = true;
+        submitBtn.disabled = true;
+        wrongAnswerCount = 0;
+        correctCount++;
+        correctCountEl.textContent = correctCount;
+      } else {
+        wrongAnswerCount++;
+        if (wrongAnswerCount >= 3) {
+          feedbackText.textContent = "Incorrect. You've reached 3 attempts. The solution is now available.";
+          feedbackText.classList.add('text-red-600');
+          solutionBtn.classList.remove('hidden');
+          answerInput.disabled = true;
+          submitBtn.disabled = true;
+          incorrectCount++;
+          incorrectCountEl.textContent = incorrectCount;
+        } else {
+          feedbackText.textContent = `Incorrect, please try again. (Attempt ${wrongAnswerCount} of 3)`;
+          feedbackText.classList.add('text-red-600');
+        }
+      }
+    }
+
+    function showNextProblem() {
+      if (currentProblemIndex < problems.length - 1) {
+        showProblem(currentProblemIndex + 1);
+      }
+    }
+
+    function showPreviousProblem() {
+      if (currentProblemIndex > 0) {
+        showProblem(currentProblemIndex - 1);
+      }
+    }
+
+    function updateNavButtonsState() {
+      prevBtn.disabled = (currentProblemIndex === 0);
+      nextBtn.disabled = (currentProblemIndex === problems.length - 1);
+    }
+
+    async function loadProblems() {
+      try {
+        const res = await fetch('problems.json', { cache: 'no-store' });
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        problems = await res.json();
+        if (!Array.isArray(problems) || problems.length === 0) {
+          throw new Error('problems.json is empty or invalid');
+        }
+        showProblem(0);
+      } catch (err) {
+        problemText.textContent = 'Failed to load problems.json. Please ensure it is in the same folder as this HTML file.';
+        console.error('Error loading problems:', err);
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      correctCountEl = document.getElementById('correct-count');
+      incorrectCountEl = document.getElementById('incorrect-count');
+      prevBtn = document.getElementById('prev-btn');
+      nextBtn = document.getElementById('next-btn');
+
+      solutionBtn.addEventListener('click', toggleSolution);
+      submitBtn.addEventListener('click', checkAnswer);
+      prevBtn.addEventListener('click', showPreviousProblem);
+      nextBtn.addEventListener('click', showNextProblem);
+      answerInput.addEventListener('keypress', function(e) {
+        if (e.key === 'Enter') {
+          e.preventDefault();
+          checkAnswer();
+        }
+      });
+
+      loadProblems();
+    });
+  </script>
+</body>
+</html>
