@@ -17,22 +17,31 @@
   <main class="max-w-4xl mx-auto p-4 md:p-8">
     <header class="text-center mb-8">
       <h1 class="text-3xl md:text-4xl font-bold text-teal-800">Linear Equation Word Problems</h1>
-      <p class="text-lg text-gray-700 mt-2">An interactive practice tool to master 50 word problems.</p>
+      <p class="text-lg text-gray-700 mt-2">An interactive practice tool to master word problems.</p>
     </header>
 
-    <section class="mb-8 bg-white p-4 rounded-xl shadow-lg flex justify-around text-center">
-      <div>
-        <span class="block text-2xl font-bold text-green-600" id="correct-count">0</span>
-        <span class="text-sm text-gray-600">Correct</span>
+    <!-- Scoreboard -->
+    <section class="mb-8 bg-white p-4 rounded-xl shadow-lg text-center">
+      <div class="flex justify-around">
+        <div>
+          <span class="block text-2xl font-bold text-green-600" id="correct-count">0</span>
+          <span class="text-sm text-gray-600">Correct</span>
+        </div>
+        <div>
+          <span class="block text-2xl font-bold text-red-600" id="incorrect-count">0</span>
+          <span class="text-sm text-gray-600">Incorrect</span>
+        </div>
       </div>
-      <div>
-        <span class="block text-2xl font-bold text-red-600" id="incorrect-count">0</span>
-        <span class="text-sm text-gray-600">Incorrect</span>
+      <div class="text-center mt-2">
+        <button id="reset-progress-btn" class="text-xs px-3 py-1 border border-teal-300 rounded-lg hover:bg-teal-50">
+          Reset Progress
+        </button>
       </div>
     </section>
 
+    <!-- Workspace -->
     <section id="workspace" class="bg-white p-6 md:p-8 rounded-xl shadow-lg transition-all duration-300">
-      <h2 id="problem-title" class="text-2xl font-semibold text-teal-700 mb-4">Problem #1 of 50</h2>
+      <h2 id="problem-title" class="text-2xl font-semibold text-teal-700 mb-4">Problem #1</h2>
       <p id="problem-text" class="text-gray-800 text-lg leading-relaxed min-h-[100px]"></p>
       <p id="answer-hint" class="text-sm text-gray-600 mt-4 font-medium"></p>
       <div class="mt-4 flex flex-col sm:flex-row gap-2">
@@ -54,6 +63,7 @@
       </div>
     </section>
 
+    <!-- Navigation -->
     <nav class="mt-8 flex justify-between items-center">
       <button id="prev-btn" class="px-6 py-3 bg-white border border-teal-300 text-teal-700 font-semibold rounded-lg shadow-sm hover:shadow-md disabled:opacity-50 disabled:cursor-not-allowed transition-all">
         &larr; Previous
@@ -65,13 +75,14 @@
   </main>
 
   <script>
-    // problems now loaded from problems.json
+    // State
     let problems = [];
     let currentProblemIndex = 0;
     let wrongAnswerCount = 0;
     let correctCount = 0;
     let incorrectCount = 0;
 
+    // Elements
     const problemTitle = document.getElementById('problem-title');
     const problemText = document.getElementById('problem-text');
     const answerHint = document.getElementById('answer-hint');
@@ -90,6 +101,44 @@
     let prevBtn;
     let nextBtn;
 
+    // --- Progress persistence ---
+    const storageKey = 'linearEqProgressV1';
+
+    function saveState() {
+      try {
+        const state = {
+          currentProblemIndex,
+          correctCount,
+          incorrectCount
+        };
+        localStorage.setItem(storageKey, JSON.stringify(state));
+      } catch (_) {}
+    }
+
+    function restoreState() {
+      try {
+        const raw = localStorage.getItem(storageKey);
+        if (!raw) return;
+        const state = JSON.parse(raw);
+        if (typeof state.currentProblemIndex === 'number') {
+          currentProblemIndex = Math.min(
+            Math.max(0, state.currentProblemIndex),
+            Math.max(0, problems.length - 1)
+          );
+        }
+        if (typeof state.correctCount === 'number') correctCount = state.correctCount;
+        if (typeof state.incorrectCount === 'number') incorrectCount = state.incorrectCount;
+
+        if (correctCountEl) correctCountEl.textContent = String(correctCount);
+        if (incorrectCountEl) incorrectCountEl.textContent = String(incorrectCount);
+      } catch (_) {}
+    }
+
+    function resetState() {
+      try { localStorage.removeItem(storageKey); } catch (_) {}
+    }
+
+    // UI
     function showProblem(index) {
       currentProblemIndex = index;
       const problem = problems[index];
@@ -141,8 +190,10 @@
         answerInput.disabled = true;
         submitBtn.disabled = true;
         wrongAnswerCount = 0;
+
         correctCount++;
-        correctCountEl.textContent = correctCount;
+        correctCountEl.textContent = String(correctCount);
+        saveState();
       } else {
         wrongAnswerCount++;
         if (wrongAnswerCount >= 3) {
@@ -151,8 +202,10 @@
           solutionBtn.classList.remove('hidden');
           answerInput.disabled = true;
           submitBtn.disabled = true;
+
           incorrectCount++;
-          incorrectCountEl.textContent = incorrectCount;
+          incorrectCountEl.textContent = String(incorrectCount);
+          saveState();
         } else {
           feedbackText.textContent = `Incorrect, please try again. (Attempt ${wrongAnswerCount} of 3)`;
           feedbackText.classList.add('text-red-600');
@@ -163,12 +216,14 @@
     function showNextProblem() {
       if (currentProblemIndex < problems.length - 1) {
         showProblem(currentProblemIndex + 1);
+        saveState();
       }
     }
 
     function showPreviousProblem() {
       if (currentProblemIndex > 0) {
         showProblem(currentProblemIndex - 1);
+        saveState();
       }
     }
 
@@ -185,7 +240,16 @@
         if (!Array.isArray(problems) || problems.length === 0) {
           throw new Error('problems.json is empty or invalid');
         }
-        showProblem(0);
+
+        // restore saved state (index + scores) before rendering
+        restoreState();
+
+        // apply restored counters to UI
+        correctCountEl.textContent = String(correctCount);
+        incorrectCountEl.textContent = String(incorrectCount);
+
+        // render last problem (or 0 if none)
+        showProblem(currentProblemIndex);
       } catch (err) {
         problemText.textContent = 'Failed to load problems.json. Please ensure it is in the same folder as this HTML file.';
         console.error('Error loading problems:', err);
@@ -208,6 +272,19 @@
           checkAnswer();
         }
       });
+
+      const resetBtn = document.getElementById('reset-progress-btn');
+      if (resetBtn) {
+        resetBtn.addEventListener('click', () => {
+          resetState();
+          currentProblemIndex = 0;
+          correctCount = 0;
+          incorrectCount = 0;
+          correctCountEl.textContent = '0';
+          incorrectCountEl.textContent = '0';
+          showProblem(0);
+        });
+      }
 
       loadProblems();
     });
