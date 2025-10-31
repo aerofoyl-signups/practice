@@ -48,7 +48,7 @@
 "id": 6,
 "text": "A sum of money is divided between two people in the ratio $7:3$. If the person with the larger share gets $49, what is the total sum of money?",
 "var": "Let $x$ = the common multiplier.",
-"equation": "$ 7x = 49 \;\Rightarrow\; 10x = \text{total} $",
+"equation": "$ 7x = 49 ;\Rightarrow; 10x = \text{total} $",
 "answer": "$70",
 "correctAnswers": ["70"],
 "answerHint": "Hint: Enter the total sum (e.g., 70)."
@@ -57,7 +57,7 @@
 "id": 7,
 "text": "The ratio of two positive numbers is $5:8$. If the larger number is 32, what is their sum?",
 "var": "Let $x$ = the common multiplier.",
-"equation": "$ 8x = 32 \;\Rightarrow\; 5x + 8x = 13x $",
+"equation": "$ 8x = 32 ;\Rightarrow; 5x + 8x = 13x $",
 "answer": "52",
 "correctAnswers": ["52"],
 "answerHint": "Hint: Enter the sum of the two numbers."
@@ -84,7 +84,7 @@
 "id": 10,
 "text": "The price of a pen and a pencil are in the ratio $5:2$. If the price of the pen is $15, what is the price of the pencil?",
 "var": "Let $x$ = the common multiplier (in dollars).",
-"equation": "$ 5x = 15 \;\Rightarrow\; 2x = \text{pencil price} $",
+"equation": "$ 5x = 15 ;\Rightarrow; 2x = \text{pencil price} $",
 "answer": "$6",
 "correctAnswers": ["6"],
 "answerHint": "Hint: Enter the price of the pencil (e.g., 6)."
