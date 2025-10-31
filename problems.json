@@ -1,554 +1,92 @@
 [
-  {
-    "id": 1,
-    "text": "A father is 28 years older than his son. In 5 years, the father will be three times as old as his son. Find their present ages.",
-    "var": "Let $s$ = the son's current age.",
-    "equation": "$ (s + 28) + 5 = 3(s + 5) $",
-    "answer": "Son = 9 years old, Father = 37 years old",
-    "correctAnswers": [
-      "9"
-    ],
-    "answerHint": "Hint: Enter the son's current age as a number."
-  },
-  {
-    "id": 2,
-    "text": "If 8 is subtracted from five times a number, the result is 52. Find the number.",
-    "var": "Let $n$ = the number.",
-    "equation": "$ 5n - 8 = 52 $",
-    "answer": "$ n = 12 $",
-    "correctAnswers": [
-      "12"
-    ],
-    "answerHint": "Hint: Enter the final number."
-  },
-  {
-    "id": 3,
-    "text": "Julia has a collection of dimes and quarters worth a total of $3.50. She has 7 more dimes than quarters. How many of each coin does she have? (Note: Original problem total $3.55 was modified to $3.50 to allow for a whole-number solution).",
-    "var": "Let $q$ = the number of quarters.",
-    "equation": "$ 0.25q + 0.10(q + 7) = 3.50 $",
-    "answer": "8 quarters and 15 dimes",
-    "correctAnswers": [
-      "8"
-    ],
-    "answerHint": "Hint: Enter the number of quarters."
-  },
-  {
-    "id": 4,
-    "text": "The length of a rectangle is 7 cm more than its width. If the perimeter is 62 cm, find the length and width.",
-    "var": "Let $w$ = the width.",
-    "equation": "$ 2w + 2(w + 7) = 62 $",
-    "answer": "Width = 12 cm, Length = 19 cm",
-    "correctAnswers": [
-      "12"
-    ],
-    "answerHint": "Hint: Enter the width as a number."
-  },
-  {
-    "id": 5,
-    "text": "The sum of three consecutive odd integers is 147. Find the integers.",
-    "var": "Let $n$ = the first odd integer.",
-    "equation": "$ n + (n + 2) + (n + 4) = 147 $",
-    "answer": "47, 49, and 51",
-    "correctAnswers": [
-      "47"
-    ],
-    "answerHint": "Hint: Enter the first (smallest) odd integer."
-  },
-  {
-    "id": 6,
-    "text": "Two cars leave the same city at the same time, traveling in opposite directions. One car travels at 55 mph and the other at 65 mph. In how many hours will they be 480 miles apart?",
-    "var": "Let $t$ = the time in hours.",
-    "equation": "$ 55t + 65t = 480 $",
-    "answer": "$ t = 4 $ hours",
-    "correctAnswers": [
-      "4"
-    ],
-    "answerHint": "Hint: Enter the time in hours."
-  },
-  {
-    "id": 7,
-    "text": "Alice is 4 years older than her brother, Ben. The sum of their ages is 30. How old is Ben?",
-    "var": "Let $b$ = Ben's age.",
-    "equation": "$ b + (b + 4) = 30 $",
-    "answer": "Ben is 13 years old",
-    "correctAnswers": [
-      "13"
-    ],
-    "answerHint": "Hint: Enter Ben's age."
-  },
-  {
-    "id": 8,
-    "text": "On a test with 50 questions, a student gets 3 points for a correct answer and loses 1 point for an incorrect answer. If a student answered all questions and scored 90 points, how many questions did they answer correctly?",
-    "var": "Let $c$ = the number of correct answers.",
-    "equation": "$ 3c - 1(50 - c) = 90 $",
-    "answer": "35 correct answers",
-    "correctAnswers": [
-      "35"
-    ],
-    "answerHint": "Hint: Enter the number of correct answers."
-  },
-  {
-    "id": 9,
-    "text": "One-half of a number, increased by 16, is 34. What is the number?",
-    "var": "Let $x$ = the number.",
-    "equation": "$ (1/2)x + 16 = 34 $",
-    "answer": "$ x = 36 $",
-    "correctAnswers": [
-      "36"
-    ],
-    "answerHint": "Hint: Enter the number."
-  },
-  {
-    "id": 10,
-    "text": "A salesperson earns a base salary of $400 per week plus an 8% commission on all sales. How much must they sell in a week to earn a total of $900?",
-    "var": "Let $s$ = the total sales amount.",
-    "equation": "$ 400 + 0.08s = 900 $",
-    "answer": "$6,250 in sales",
-    "correctAnswers": [
-      "6250"
-    ],
-    "answerHint": "Hint: Enter the total sales amount as a number (e.g., 6250)."
-  },
-  {
-    "id": 11,
-    "text": "In a triangle, the second angle is 15° more than the first angle. The third angle is twice the first angle. Find the measures of the three angles. (Hint: The sum of angles in a triangle is 180°).",
-    "var": "Let $a$ = the first angle.",
-    "equation": "$ a + (a + 15) + (2a) = 180 $",
-    "answer": "41.25°, 56.25°, and 82.5°",
-    "correctAnswers": [
-      "41.25"
-    ],
-    "answerHint": "Hint: Enter the measure of the first angle (e.g., 41.25)."
-  },
-  {
-    "id": 12,
-    "text": "A classroom has 32 students. There are 8 more girls than boys. How many boys are in the class?",
-    "var": "Let $b$ = the number of boys.",
-    "equation": "$ b + (b + 8) = 32 $",
-    "answer": "12 boys",
-    "correctAnswers": [
-      "12"
-    ],
-    "answerHint": "Hint: Enter the number of boys."
-  },
-  {
-    "id": 13,
-    "text": "A train leaves a station at 1:00 PM traveling at 70 mph. A second train leaves the same station an hour later (at 2:00 PM) on a parallel track, traveling at 80 mph. At what time will the second train overtake the first?",
-    "var": "Let $t$ = time in hours for the first train.",
-    "equation": "$ 70t = 80(t - 1) $",
-    "answer": "9:00 PM (8 hours after the first train left)",
-    "correctAnswers": [
-      "8"
-    ],
-    "answerHint": "Hint: Enter the time in hours for the *first* train (e.g., 8)."
-  },
-  {
-    "id": 14,
-    "text": "The sum of two consecutive integers is 81. Find the two integers.",
-    "var": "Let $n$ = the first integer.",
-    "equation": "$ n + (n + 1) = 81 $",
-    "answer": "40 and 41",
-    "correctAnswers": [
-      "40"
-    ],
-    "answerHint": "Hint: Enter the first (smaller) integer."
-  },
-  {
-    "id": 15,
-    "text": "Sam bought a shirt and a pair of pants. The pants cost $12.50 more than the shirt. The total cost for both items was $78.50. How much did the shirt cost?",
-    "var": "Let $s$ = the cost of the shirt.",
-    "equation": "$ s + (s + 12.50) = 78.50 $",
-    "answer": "The shirt cost $33.00",
-    "correctAnswers": [
-      "33",
-      "33.00"
-    ],
-    "answerHint": "Hint: Enter the cost of the shirt (e.g., 33 or 33.00)."
-  },
-  {
-    "id": 16,
-    "text": "The side of a square is $(2x - 1)$ meters. If the perimeter is 60 meters, find the value of $x$ and the length of the side.",
-    "var": "$x$ is the variable in the expression.",
-    "equation": "$ 4(2x - 1) = 60 $",
-    "answer": "$ x = 8 $, and the side length is 15 meters",
-    "correctAnswers": [
-      "8"
-    ],
-    "answerHint": "Hint: Enter the value of x."
-  },
-  {
-    "id": 17,
-    "text": "A chemist has 100 ml of a solution that is 20% acid. How many milliliters of pure acid must be added to create a solution that is 25% acid?",
-    "var": "Let $x$ = the amount of pure acid to add.",
-    "equation": "$ (20 + x) / (100 + x) = 0.25 $",
-    "answer": "6.67 ml (or 20/3 ml) of pure acid",
-    "correctAnswers": [
-      "6.67",
-      "20/3"
-    ],
-    "answerHint": "Hint: Enter the amount of acid to add (e.g., 6.67 or 20/3)."
-  },
-  {
-    "id": 18,
-    "text": "Maria's mother is 40. She is 25 years older than Maria (so Maria is 15). How many years ago was Maria's mother six times as old as Maria?",
-    "var": "Let $y$ = the number of years ago.",
-    "equation": "$ 40 - y = 6(15 - y) $",
-    "answer": "10 years ago",
-    "correctAnswers": [
-      "10"
-    ],
-    "answerHint": "Hint: Enter the number of years ago."
-  },
-  {
-    "id": 19,
-    "text": "Adult tickets for a play cost $15 and student tickets cost $9. A total of 300 tickets were sold. If the total revenue was $3,300, how many adult tickets were sold?",
-    "var": "Let $a$ = the number of adult tickets.",
-    "equation": "$ 15a + 9(300 - a) = 3300 $",
-    "answer": "100 adult tickets",
-    "correctAnswers": [
-      "100"
-    ],
-    "answerHint": "Hint: Enter the number of adult tickets."
-  },
-  {
-    "id": 20,
-    "text": "The base of an isosceles triangle is 10 cm. The perimeter is 44 cm. What is the length of one of the two equal sides?",
-    "var": "Let $s$ = the length of one of the equal sides.",
-    "equation": "$ 10 + 2s = 44 $",
-    "answer": "17 cm",
-    "correctAnswers": [
-      "17"
-    ],
-    "answerHint": "Hint: Enter the length of one of the equal sides."
-  },
-  {
-    "id": 21,
-    "text": "The sum of four consecutive even integers is 220. Find the integers.",
-    "var": "Let $n$ = the first even integer.",
-    "equation": "$ n + (n + 2) + (n + 4) + (n + 6) = 220 $",
-    "answer": "52, 54, 56, and 58",
-    "correctAnswers": [
-      "52"
-    ],
-    "answerHint": "Hint: Enter the first (smallest) even integer."
-  },
-  {
-    "id": 22,
-    "text": "Anna is twice as old as her brother Sam. In 4 years, the sum of their ages will be 26. How old is Sam now?",
-    "var": "Let $s$ = Sam's current age.",
-    "equation": "$ (2s + 4) + (s + 4) = 26 $",
-    "answer": "Sam is 6 years old.",
-    "correctAnswers": [
-      "6"
-    ],
-    "answerHint": "Hint: Enter Sam's current age."
-  },
-  {
-    "id": 23,
-    "text": "A wallet contains only nickels and dimes, with a total value of $2.90. There are 35 coins in total. How many nickels are there?",
-    "var": "Let $n$ = the number of nickels.",
-    "equation": "$ 0.05n + 0.10(35 - n) = 2.90 $",
-    "answer": "12 nickels",
-    "correctAnswers": [
-      "12"
-    ],
-    "answerHint": "Hint: Enter the number of nickels."
-  },
-  {
-    "id": 24,
-    "text": "The width of a rectangle is 5 feet less than its length. If the perimeter is 70 feet, find the width.",
-    "var": "Let $l$ = the length.",
-    "equation": "$ 2l + 2(l - 5) = 70 $",
-    "answer": "Width = 15 feet, Length = 20 feet",
-    "correctAnswers": [
-      "15"
-    ],
-    "answerHint": "Hint: Enter the width in feet."
-  },
-  {
-    "id": 25,
-    "text": "When 15 is added to three-fourths of a number, the result is 30. Find the number.",
-    "var": "Let $x$ = the number.",
-    "equation": "$ (3/4)x + 15 = 30 $",
-    "answer": "$ x = 20 $",
-    "correctAnswers": [
-      "20"
-    ],
-    "answerHint": "Hint: Enter the number."
-  },
-  {
-    "id": 26,
-    "text": "Two cyclists start from the same point and ride in opposite directions. One cyclist rides 3 mph faster than the other. After 2 hours, they are 54 miles apart. Find the speed of the slower cyclist.",
-    "var": "Let $r$ = the speed of the slower cyclist.",
-    "equation": "$ 2r + 2(r + 3) = 54 $",
-    "answer": "Slower cyclist = 12 mph, Faster cyclist = 15 mph",
-    "correctAnswers": [
-      "12"
-    ],
-    "answerHint": "Hint: Enter the speed of the slower cyclist in mph."
-  },
-  {
-    "id": 27,
-    "text": "How many liters of a 10% salt solution must be added to 20 liters of a 40% salt solution to get a 30% salt solution?",
-    "var": "Let $x$ = the liters of 10% solution to add.",
-    "equation": "$ 0.10x + 0.40(20) = 0.30(x + 20) $",
-    "answer": "10 liters",
-    "correctAnswers": [
-      "10"
-    ],
-    "answerHint": "Hint: Enter the liters of 10% solution to add."
-  },
-  {
-    "id": 28,
-    "text": "Liam worked for 12 hours and earned $150. His regular hourly wage is $10 per hour, but he earns 1.5 times that (time-and-a-half) for any hours worked over 8. What is his correct pay?",
-    "var": "Let $p$ = Liam's total pay.",
-    "equation": "$ p = (8 \times 10) + (4 \times (10 \times 1.5)) $",
-    "answer": "His correct pay is $140.",
-    "correctAnswers": [
-      "140"
-    ],
-    "answerHint": "Hint: Enter the correct total pay Liam *should* have received."
-  },
-  {
-    "id": 29,
-    "text": "After spending one-third of his money and then $20 more, Alex had $50 left. How much money did he start with?",
-    "var": "Let $m$ = the starting amount of money.",
-    "equation": "$ m - (1/3)m - 20 = 50 $",
-    "answer": "$105",
-    "correctAnswers": [
-      "105"
-    ],
-    "answerHint": "Hint: Enter the starting amount of money (e.g., 105)."
-  },
-  {
-    "id": 30,
-    "text": "Find two consecutive positive integers such that the sum of the smaller and twice the larger is 68.",
-    "var": "Let $n$ = the smaller integer.",
-    "equation": "$ n + 2(n + 1) = 68 $",
-    "answer": "22 and 23",
-    "correctAnswers": [
-      "22"
-    ],
-    "answerHint": "Hint: Enter the smaller integer."
-  },
-  {
-    "id": 31,
-    "text": "A mother is 24 years older than her daughter. In 4 years, the mother's age will be 4 years less than three times her daughter's age. How old is the daughter now?",
-    "var": "Let $d$ = the daughter's current age.",
-    "equation": "$ (d + 24) + 4 = 3(d + 4) - 4 $",
-    "answer": "Daughter is 10 years old.",
-    "correctAnswers": [
-      "10"
-    ],
-    "answerHint": "Hint: Enter the daughter's current age."
-  },
-  {
-    "id": 32,
-    "text": "The second angle of a triangle is 3 times the first, and the third angle is 30 degrees larger than the first. Find the first angle.",
-    "var": "Let $x$ = the first angle.",
-    "equation": "$ x + 3x + (x + 30) = 180 $",
-    "answer": "First angle = 30°",
-    "correctAnswers": [
-      "30"
-    ],
-    "answerHint": "Hint: Enter the measure of the first angle."
-  },
-  {
-    "id": 33,
-    "text": "A theater sold 500 tickets for a show, raising $8,000. Floor seats cost $20, and balcony seats cost $15. How many floor seats were sold?",
-    "var": "Let $f$ = the number of floor seats.",
-    "equation": "$ 20f + 15(500 - f) = 8000 $",
-    "answer": "100 floor seats",
-    "correctAnswers": [
-      "100"
-    ],
-    "answerHint": "Hint: Enter the number of floor seats."
-  },
-  {
-    "id": 34,
-    "text": "A number is doubled and then 9 is subtracted. The result is 31. What is the original number?",
-    "var": "Let $n$ = the number.",
-    "equation": "$ 2n - 9 = 31 $",
-    "answer": "$ n = 20 $",
-    "correctAnswers": [
-      "20"
-    ],
-    "answerHint": "Hint: Enter the number."
-  },
-  {
-    "id": 35,
-    "text": "An isosceles triangle has a perimeter of 52 inches. Each of the two equal sides is 11 inches longer than the base. Find the length of the base.",
-    "var": "Let $b$ = the length of the base.",
-    "equation": "$ b + 2(b + 11) = 52 $",
-    "answer": "Base = 10 inches",
-    "correctAnswers": [
-      "10"
-    ],
-    "answerHint": "Hint: Enter the length of the base in inches."
-  },
-  {
-    "id": 36,
-    "text": "Sarah drove from her house to the lake at an average speed of 40 mph. The trip back home took the same route, but she averaged 60 mph. The total driving time for the round trip was 5 hours. What is the distance to the lake?",
-    "var": "Let $d$ = the distance to the lake.",
-    "equation": "$ d/40 + d/60 = 5 $",
-    "answer": "120 miles",
-    "correctAnswers": [
-      "120"
-    ],
-    "answerHint": "Hint: Enter the distance to the lake in miles."
-  },
-  {
-    "id": 37,
-    "text": "David has $4.85 in quarters and dimes. He has 25 coins in total. How many quarters does he have?",
-    "var": "Let $q$ = the number of quarters.",
-    "equation": "$ 0.25q + 0.10(25 - q) = 4.90 $",
-    "answer": "16 quarters",
-    "correctAnswers": [
-      "16"
-    ],
-    "answerHint": "Hint: Enter the number of quarters."
-  },
-  {
-    "id": 38,
-    "text": "Mark is 11 years older than his sister. In 6 years, he will be twice as old as she will be. How old is Mark now?",
-    "var": "Let $s$ = his sister's current age.",
-    "equation": "$ (s + 11) + 6 = 2(s + 6) $",
-    "answer": "Mark is 16 years old.",
-    "correctAnswers": [
-      "16"
-    ],
-    "answerHint": "Hint: Enter Mark's current age."
-  },
-  {
-    "id": 39,
-    "text": "Find a number such that if you subtract 7 from it and multiply the result by 4, you get 48.",
-    "var": "Let $x$ = the number.",
-    "equation": "$ 4(x - 7) = 48 $",
-    "answer": "$ x = 19 $",
-    "correctAnswers": [
-      "19"
-    ],
-    "answerHint": "Hint: Enter the number."
-  },
-  {
-    "id": 40,
-    "text": "The sum of three consecutive integers is 126. Find the middle integer.",
-    "var": "Let $n$ = the first integer.",
-    "equation": "$ n + (n + 1) + (n + 2) = 126 $",
-    "answer": "41, 42, 43. The middle integer is 42.",
-    "correctAnswers": [
-      "42"
-    ],
-    "answerHint": "Hint: Enter the middle integer."
-  },
-  {
-    "id": 41,
-    "text": "A grocer wants to mix peanuts worth $2.00 per pound with cashews worth $6.00 per pound to make 20 pounds of a mixture worth $3.00 per pound. How many pounds of peanuts are needed?",
-    "var": "Let $p$ = the pounds of peanuts.",
-    "equation": "$ 2.00p + 6.00(20 - p) = 3.00(20) $",
-    "answer": "15 pounds of peanuts",
-    "correctAnswers": [
-      "15"
-    ],
-    "answerHint": "Hint: Enter the pounds of peanuts."
-  },
-  {
-    "id": 42,
-    "text": "The length of a rectangle is 1 less than twice its width. The perimeter is 40 meters. Find the length.",
-    "var": "Let $w$ = the width.",
-    "equation": "$ 2(2w - 1) + 2w = 40 $",
-    "answer": "Width = 7 m, Length = 13 m",
-    "correctAnswers": [
-      "13"
-    ],
-    "answerHint": "Hint: Enter the length in meters."
-  },
-  {
-    "id": 43,
-    "text": "Student tickets to a game cost $5, and adult tickets cost $10. If 150 tickets were sold for a total of $1100, how many student tickets were sold?",
-    "var": "Let $s$ = the number of student tickets.",
-    "equation": "$ 5s + 10(150 - s) = 1100 $",
-    "answer": "80 student tickets",
-    "correctAnswers": [
-      "80"
-    ],
-    "answerHint": "Hint: Enter the number of student tickets."
-  },
-  {
-    "id": 44,
-    "text": "Carlos is 8 years older than his sister, Maria. Four years ago, he was twice as old as she was. How old is Maria now?",
-    "var": "Let $m$ = Maria's current age.",
-    "equation": "$ (m + 8) - 4 = 2(m - 4) $",
-    "answer": "Maria is 12 years old.",
-    "correctAnswers": [
-      "12"
-    ],
-    "answerHint": "Hint: Enter Maria's current age."
-  },
-  {
-    "id": 45,
-    "text": "One-fifth of a number, plus 10, is 17. Find the number.",
-    "var": "Let $n$ = the number.",
-    "equation": "$ (1/5)n + 10 = 17 $",
-    "answer": "$ n = 35 $",
-    "correctAnswers": [
-      "35"
-    ],
-    "answerHint": "Hint: Enter the number."
-  },
-  {
-    "id": 46,
-    "text": "Find two consecutive odd integers such that four times the smaller is 18 more than twice the larger.",
-    "var": "Let $n$ = the smaller odd integer.",
-    "equation": "$ 4n = 2(n + 2) + 18 $",
-    "answer": "11 and 13",
-    "correctAnswers": [
-      "11"
-    ],
-    "answerHint": "Hint: Enter the smaller odd integer."
-  },
-  {
-    "id": 47,
-    "text": "A jacket is on sale for $68, which is 20% off the original price. What was the original price?",
-    "var": "Let $p$ = the original price.",
-    "equation": "$ p - 0.20p = 68 $",
-    "answer": "$85",
-    "correctAnswers": [
-      "85"
-    ],
-    "answerHint": "Hint: Enter the original price (e.g., 85)."
-  },
-  {
-    "id": 48,
-    "text": "Two angles are supplementary (add to 180°). One angle is 30° less than twice the other. Find the measure of the smaller angle.",
-    "var": "Let $x$ = the first angle.",
-    "equation": "$ x + (2x - 30) = 180 $",
-    "answer": "The angles are 70° and 110°. The smaller angle is 70°.",
-    "correctAnswers": [
-      "70"
-    ],
-    "answerHint": "Hint: Enter the measure of the smaller angle."
-  },
-  {
-    "id": 49,
-    "text": "A bus travels 300 miles in the same amount of time that a car travels 360 miles. The speed of the car is 10 mph faster than the speed of the bus. What is the speed of the bus?",
-    "var": "Let $r$ = the speed of the bus.",
-    "equation": "$ 300/r = 360/(r + 10) $",
-    "answer": "50 mph",
-    "correctAnswers": [
-      "50"
-    ],
-    "answerHint": "Hint: Enter the speed of the bus in mph."
-  },
-  {
-    "id": 50,
-    "text": "It takes pipe A 6 hours to fill a tank, and pipe B 3 hours to fill the same tank. How long will it take to fill the tank if both pipes are open?",
-    "var": "Let $t$ = the time in hours to fill the tank together.",
-    "equation": "$ (1/6)t + (1/3)t = 1 $",
-    "answer": "2 hours",
-    "correctAnswers": [
-      "2"
-    ],
-    "answerHint": "Hint: Enter the time in hours."
-  }
+{
+"id": 1,
+"text": "Two numbers are in the ratio $2:3$. If their sum is 50, what are the two numbers?",
+"var": "Let $x$ = the common multiplier.",
+"equation": "$ 2x + 3x = 50 $",
+"answer": "20 and 30",
+"correctAnswers": ["20"],
+"answerHint": "Hint: Enter the smaller number."
+},
+{
+"id": 2,
+"text": "The ratio of two numbers is $5:7$. If their sum is 72, what is the smaller number?",
+"var": "Let $x$ = the common multiplier.",
+"equation": "$ 5x + 7x = 72 $",
+"answer": "Smaller number = 30 (larger = 42)",
+"correctAnswers": ["30"],
+"answerHint": "Hint: Enter the smaller number."
+},
+{
+"id": 3,
+"text": "The ratio of boys to girls in a class is $3:4$. If there are 28 students in total, how many girls are there?",
+"var": "Let $x$ = the common multiplier.",
+"equation": "$ 3x + 4x = 28 $",
+"answer": "16 girls",
+"correctAnswers": ["16"],
+"answerHint": "Hint: Enter the number of girls."
+},
+{
+"id": 4,
+"text": "Two numbers are in the ratio $1:5$. Their difference is 20. What is the larger number?",
+"var": "Let $x$ = the common multiplier.",
+"equation": "$ (5x - x) = 20 $",
+"answer": "25",
+"correctAnswers": ["25"],
+"answerHint": "Hint: Enter the larger number."
+},
+{
+"id": 5,
+"text": "The ages of two friends are in the ratio $4:5$. The sum of their ages is 45 years. How old is the older friend?",
+"var": "Let $x$ = the common multiplier.",
+"equation": "$ 4x + 5x = 45 $",
+"answer": "25 years",
+"correctAnswers": ["25"],
+"answerHint": "Hint: Enter the older friend's age."
+},
+{
+"id": 6,
+"text": "A sum of money is divided between two people in the ratio $7:3$. If the person with the larger share gets $49, what is the total sum of money?",
+"var": "Let $x$ = the common multiplier.",
+"equation": "$ 7x = 49 \;\Rightarrow\; 10x = \text{total} $",
+"answer": "$70",
+"correctAnswers": ["70"],
+"answerHint": "Hint: Enter the total sum (e.g., 70)."
+},
+{
+"id": 7,
+"text": "The ratio of two positive numbers is $5:8$. If the larger number is 32, what is their sum?",
+"var": "Let $x$ = the common multiplier.",
+"equation": "$ 8x = 32 \;\Rightarrow\; 5x + 8x = 13x $",
+"answer": "52",
+"correctAnswers": ["52"],
+"answerHint": "Hint: Enter the sum of the two numbers."
+},
+{
+"id": 8,
+"text": "The lengths of the sides of a triangle are in the ratio $2:3:4$. If the perimeter is 63 cm, what is the length of the shortest side?",
+"var": "Let $x$ = the common multiplier.",
+"equation": "$ 2x + 3x + 4x = 63 $",
+"answer": "14 cm",
+"correctAnswers": ["14"],
+"answerHint": "Hint: Enter the length of the shortest side in centimeters."
+},
+{
+"id": 9,
+"text": "The three angles in a triangle are in the ratio $1:2:3$. What is the measure of the largest angle?",
+"var": "Let $x$ = the common multiplier (in degrees).",
+"equation": "$ x + 2x + 3x = 180^\circ $",
+"answer": "90°",
+"correctAnswers": ["90"],
+"answerHint": "Hint: Enter the largest angle measure (in degrees)."
+},
+{
+"id": 10,
+"text": "The price of a pen and a pencil are in the ratio $5:2$. If the price of the pen is $15, what is the price of the pencil?",
+"var": "Let $x$ = the common multiplier (in dollars).",
+"equation": "$ 5x = 15 \;\Rightarrow\; 2x = \text{pencil price} $",
+"answer": "$6",
+"correctAnswers": ["6"],
+"answerHint": "Hint: Enter the price of the pencil (e.g., 6)."
+}
 ]
