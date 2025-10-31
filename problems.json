@@ -75,7 +75,7 @@
 "id": 9,
 "text": "The three angles in a triangle are in the ratio $1:2:3$. What is the measure of the largest angle?",
 "var": "Let $x$ = the common multiplier (in degrees).",
-"equation": "$ x + 2x + 3x = 180^\circ $",
+"equation": "$ x + 2x + 3x = 180^\\circ $",
 "answer": "90°",
 "correctAnswers": ["90"],
 "answerHint": "Hint: Enter the largest angle measure (in degrees)."
