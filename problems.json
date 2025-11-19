@@ -1,92 +1,182 @@
 [
-{
-"id": 1,
-"text": "Two numbers are in the ratio 2:3. If their sum is 50, what are the two numbers?",
-"var": "Let x = the common multiplier.",
-"equation": "2x + 3x = 50",
-"answer": "20 and 30",
-"correctAnswers": ["20"],
-"answerHint": "Hint: Enter the smaller number."
-},
-{
-"id": 2,
-"text": "The ratio of two numbers is 5:7. If their sum is 72, what is the smaller number?",
-"var": "Let x = the common multiplier.",
-"equation": "5x + 7x = 72",
-"answer": "Smaller number = 30 (larger = 42)",
-"correctAnswers": ["30"],
-"answerHint": "Hint: Enter the smaller number."
-},
-{
-"id": 3,
-"text": "The ratio of boys to girls in a class is 3:4. If there are 28 students in total, how many girls are there?",
-"var": "Let x = the common multiplier.",
-"equation": "3x + 4x = 28",
-"answer": "16 girls",
-"correctAnswers": ["16"],
-"answerHint": "Hint: Enter the number of girls."
-},
-{
-"id": 4,
-"text": "Two numbers are in the ratio 1:5. Their difference is 20. What is the larger number?",
-"var": "Let x = the common multiplier.",
-"equation": "5x - x = 20",
-"answer": "25",
-"correctAnswers": ["25"],
-"answerHint": "Hint: Enter the larger number."
-},
-{
-"id": 5,
-"text": "The ages of two friends are in the ratio 4:5. The sum of their ages is 45 years. How old is the older friend?",
-"var": "Let x = the common multiplier.",
-"equation": "4x + 5x = 45",
-"answer": "25 years",
-"correctAnswers": ["25"],
-"answerHint": "Hint: Enter the older friend's age."
-},
-{
-"id": 6,
-"text": "A sum of money is divided between two people in the ratio 7:3. If the person with the larger share gets $49, what is the total sum of money?",
-"var": "Let x = the common multiplier.",
-"equation": "7x = 49 => total = 10x",
-"answer": "$70",
-"correctAnswers": ["70"],
-"answerHint": "Hint: Enter the total sum (e.g., 70)."
-},
-{
-"id": 7,
-"text": "The ratio of two positive numbers is 5:8. If the larger number is 32, what is their sum?",
-"var": "Let x = the common multiplier.",
-"equation": "8x = 32 => 5x + 8x = 13x",
-"answer": "52",
-"correctAnswers": ["52"],
-"answerHint": "Hint: Enter the sum of the two numbers."
-},
-{
-"id": 8,
-"text": "The lengths of the sides of a triangle are in the ratio 2:3:4. If the perimeter is 63 cm, what is the length of the shortest side?",
-"var": "Let x = the common multiplier.",
-"equation": "2x + 3x + 4x = 63",
-"answer": "14 cm",
-"correctAnswers": ["14"],
-"answerHint": "Hint: Enter the length of the shortest side in centimeters."
-},
-{
-"id": 9,
-"text": "The three angles in a triangle are in the ratio 1:2:3. What is the measure of the largest angle?",
-"var": "Let x = the common multiplier (in degrees).",
-"equation": "x + 2x + 3x = 180°",
-"answer": "90°",
-"correctAnswers": ["90"],
-"answerHint": "Hint: Enter the largest angle measure (in degrees)."
-},
-{
-"id": 10,
-"text": "The price of a pen and a pencil are in the ratio 5:2. If the price of the pen is $15, what is the price of the pencil?",
-"var": "Let x = the common multiplier (in dollars).",
-"equation": "5x = 15 => pencil price = 2x",
-"answer": "$6",
-"correctAnswers": ["6"],
-"answerHint": "Hint: Enter the price of the pencil (e.g., 6)."
-}
+  {
+    "id": 1,
+    "text": "A number is increased by 25% to become 75. What is the original number?",
+    "var": "Let x = the original number.",
+    "equation": "x + 0.25x = 75",
+    "answer": "60",
+    "correctAnswers": ["60"],
+    "answerHint": "Hint: Enter the original number."
+  },
+  {
+    "id": 2,
+    "text": "A number is decreased by 10% and becomes 54. What was the number before the decrease?",
+    "var": "Let x = the original number.",
+    "equation": "x - 0.10x = 54",
+    "answer": "60",
+    "correctAnswers": ["60"],
+    "answerHint": "Hint: Enter the original number."
+  },
+  {
+    "id": 3,
+    "text": "A shirt originally costs x dollars. After a 30% discount, the sale price is $35. What was the original price?",
+    "var": "Let x = the original price.",
+    "equation": "x - 0.30x = 35",
+    "answer": "50",
+    "correctAnswers": ["50"],
+    "answerHint": "Hint: Enter the original price."
+  },
+  {
+    "id": 4,
+    "text": "A number is 40% of another number. If the larger number is 120, what is the smaller number?",
+    "var": "Let x = the smaller number.",
+    "equation": "0.40(120) = x",
+    "answer": "48",
+    "correctAnswers": ["48"],
+    "answerHint": "Hint: Enter the smaller number."
+  },
+  {
+    "id": 5,
+    "text": "A quantity increased by 12% becomes 112. What was the original quantity?",
+    "var": "Let x = the original quantity.",
+    "equation": "x + 0.12x = 112",
+    "answer": "100",
+    "correctAnswers": ["100"],
+    "answerHint": "Hint: Enter the original quantity."
+  },
+  {
+    "id": 6,
+    "text": "A student answered 60% of the questions correctly and got 24 correct. How many questions were on the test?",
+    "var": "Let x = total questions.",
+    "equation": "0.60x = 24",
+    "answer": "40",
+    "correctAnswers": ["40"],
+    "answerHint": "Hint: Enter the total number of questions."
+  },
+  {
+    "id": 7,
+    "text": "After a 20% price increase, the cost of a book becomes $30. What was the original price?",
+    "var": "Let x = the original price.",
+    "equation": "x + 0.20x = 30",
+    "answer": "25",
+    "correctAnswers": ["25"],
+    "answerHint": "Hint: Enter the original price."
+  },
+  {
+    "id": 8,
+    "text": "A number is 15% less than another number. If the larger number is 80, what is the smaller number?",
+    "var": "Let x = the smaller number.",
+    "equation": "x = 80 - 0.15(80)",
+    "answer": "68",
+    "correctAnswers": ["68"],
+    "answerHint": "Hint: Enter the smaller number."
+  },
+  {
+    "id": 9,
+    "text": "A price of a toy increased from x to 69, which is a 15% increase. What was the original price?",
+    "var": "Let x = the original price.",
+    "equation": "x + 0.15x = 69",
+    "answer": "60",
+    "correctAnswers": ["60"],
+    "answerHint": "Hint: Enter the original price."
+  },
+  {
+    "id": 10,
+    "text": "A number is 80% of another number. If the smaller number is 64, what is the larger number?",
+    "var": "Let x = the larger number.",
+    "equation": "0.80x = 64",
+    "answer": "80",
+    "correctAnswers": ["80"],
+    "answerHint": "Hint: Enter the larger number."
+  },
+  {
+    "id": 11,
+    "text": "A laptop originally priced at x dollars is discounted by 25% and now costs $450. What was the original price?",
+    "var": "Let x = the original price.",
+    "equation": "x - 0.25x = 450",
+    "answer": "600",
+    "correctAnswers": ["600"],
+    "answerHint": "Hint: Enter the original price."
+  },
+  {
+    "id": 12,
+    "text": "An investment increases by 8% and becomes $540. What was its original value?",
+    "var": "Let x = the original value.",
+    "equation": "x + 0.08x = 540",
+    "answer": "500",
+    "correctAnswers": ["500"],
+    "answerHint": "Hint: Enter the original value."
+  },
+  {
+    "id": 13,
+    "text": "A school has increased enrollment by 5% to reach 630 students. What was last year's enrollment?",
+    "var": "Let x = last year's enrollment.",
+    "equation": "x + 0.05x = 630",
+    "answer": "600",
+    "correctAnswers": ["600"],
+    "answerHint": "Hint: Enter the previous enrollment."
+  },
+  {
+    "id": 14,
+    "text": "A discount of 40% brings the price of a jacket down to $90. What was the original price?",
+    "var": "Let x = the original price.",
+    "equation": "x - 0.40x = 90",
+    "answer": "150",
+    "correctAnswers": ["150"],
+    "answerHint": "Hint: Enter the original price."
+  },
+  {
+    "id": 15,
+    "text": "A store marks up the price of an item by 10% to get a selling price of $44. What was the original price?",
+    "var": "Let x = the original price.",
+    "equation": "x + 0.10x = 44",
+    "answer": "40",
+    "correctAnswers": ["40"],
+    "answerHint": "Hint: Enter the original price."
+  },
+  {
+    "id": 16,
+    "text": "A number is 32% of another number. If the larger number is 250, what is the smaller number?",
+    "var": "Let x = the smaller number.",
+    "equation": "0.32(250) = x",
+    "answer": "80",
+    "correctAnswers": ["80"],
+    "answerHint": "Hint: Enter the smaller number."
+  },
+  {
+    "id": 17,
+    "text": "A number is increased by 18% to become 177. What was the original number?",
+    "var": "Let x = the original number.",
+    "equation": "x + 0.18x = 177",
+    "answer": "150",
+    "correctAnswers": ["150"],
+    "answerHint": "Hint: Enter the original number."
+  },
+  {
+    "id": 18,
+    "text": "A price decreased by 22% becomes $78. What was the original price?",
+    "var": "Let x = the original price.",
+    "equation": "x - 0.22x = 78",
+    "answer": "100",
+    "correctAnswers": ["100"],
+    "answerHint": "Hint: Enter the original price."
+  },
+  {
+    "id": 19,
+    "text": "A student scores 92% on an exam and earns 46 points. What was the total number of points?",
+    "var": "Let x = total points.",
+    "equation": "0.92x = 46",
+    "answer": "50",
+    "correctAnswers": ["50"],
+    "answerHint": "Hint: Enter the total points."
+  },
+  {
+    "id": 20,
+    "text": "A number is 150% of another number. If the larger number is 90, what is the smaller number?",
+    "var": "Let x = the smaller number.",
+    "equation": "1.5x = 90",
+    "answer": "60",
+    "correctAnswers": ["60"],
+    "answerHint": "Hint: Enter the smaller number."
+  }
 ]
